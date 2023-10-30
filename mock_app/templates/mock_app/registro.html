@@ -1,0 +1,36 @@
+{% extends 'mock_app/base.html' %}
+
+{% block title %}Registro{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Registro</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ formulario.as_bootstrap5 }}
+                        <div class="mb-3">
+                            <label for="{{ form.username.id_for_label }}">Usuario:</label>
+                            {{ form.username }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.password1.id_for_label }}">Contraseña:</label>
+                            {{ form.password1 }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.password2.id_for_label }}">Confirmar Contraseña:</label>
+                            {{ form.password2 }}
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
